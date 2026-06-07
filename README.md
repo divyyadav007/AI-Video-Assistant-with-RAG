@@ -25,6 +25,8 @@ Built to demonstrate practical applications of:
 * Prompt Engineering
 * AI-Powered Knowledge Retrieval
 
+<img width="1919" height="916" alt="Screenshot 2026-06-07 203924" src="https://github.com/user-attachments/assets/e7c39a2e-3d03-4c76-b162-baffdfb050fc" />
+
 ---
 
 ## ✨ Features
@@ -56,6 +58,7 @@ Chat directly with your video:
 * Semantic search
 * ChromaDB vector storage
 * Transcript-based retrieval
+<img width="1919" height="917" alt="Screenshot 2026-06-07 203913" src="https://github.com/user-attachments/assets/d09463de-4372-4c46-ae24-f07368ee7d6c" />
 
 ### 📄 Export Options
 
@@ -224,6 +227,8 @@ After processing a video, users can ask:
 * Summarize the entire discussion.
 * What action items are pending?
 * Explain this topic in simple terms.
+<img width="1919" height="917" alt="Screenshot 2026-06-07 203913" src="https://github.com/user-attachments/assets/1f2e511d-7460-4d89-a304-82d38e2ae1b7" />
+<img width="1917" height="917" alt="Screenshot 2026-06-07 203900" src="https://github.com/user-attachments/assets/b6b634e2-4296-4cd4-b29e-6fe578966e43" />
 
 ---
 
