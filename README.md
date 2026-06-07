@@ -281,4 +281,4 @@ MIT License
 
 ## 👨‍💻 Author
 
-Built by Yadav Ji as a hands-on GenAI, RAG, and LLM Engineering project.
+Built by Divyanshu Yadav as a hands-on GenAI, RAG, and LLM Engineering project.
