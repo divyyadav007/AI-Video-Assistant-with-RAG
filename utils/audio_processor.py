@@ -1,3 +1,9 @@
+"""Input processing helpers for YouTube downloads, file conversion, and chunking.
+
+The rest of the app assumes it receives short WAV chunks, so this module
+normalizes all sources into that format before transcription.
+"""
+
 import yt_dlp
 from pydub import AudioSegment
 import os
@@ -6,6 +12,7 @@ DOWNLOAD_DIR = 'downloads'
 os.makedirs(DOWNLOAD_DIR, exist_ok = True)
 
 def download_youtube_audio(url : str)->str:
+    # Download the best audio stream from YouTube and convert it to WAV.
     output_path = os.path.join(DOWNLOAD_DIR,"%(title)s.%(ext)s")
     ydl_opts ={
         "format" : "bestaudio/best",
@@ -28,6 +35,7 @@ def download_youtube_audio(url : str)->str:
 
 def convert_to_wav(input_path : str)-> str:
     """Convert any audio.video file to WAV format using pydub"""
+    # Normalize local uploads into a mono 16kHz WAV for transcription.
     output_path  = os.path.splitext(input_path)[0] + "_converted.wav"
     audio= AudioSegment.from_file(input_path)
     audio = audio.set_channels(1).set_frame_rate(16000) #16khz
@@ -38,6 +46,7 @@ def convert_to_wav(input_path : str)-> str:
 #chunking
 
 def chunk_audio(wav_path:str , chunk_minutes : int = 10 ) ->list:
+    # Break long audio into manageable chunks for transcription.
     audio = AudioSegment.from_wav(wav_path)
     chunk_ms = chunk_minutes *60*1000
     chunks = []
@@ -48,9 +57,12 @@ def chunk_audio(wav_path:str , chunk_minutes : int = 10 ) ->list:
 
         chunks.append(chunk_path)
 
+        return chunks
+
 
 
 def process_input(source: str) -> list:
+    # Route URLs to YouTube download and local paths to file conversion.
     if source.startswith("http://") or source.startswith("https://"):
         print("Detected YouTube URL. Downloading audio ... ")
         wav_path = download_youtube_audio(source)

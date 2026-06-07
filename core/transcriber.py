@@ -1,3 +1,9 @@
+"""Speech-to-text routing for English Whisper and Hinglish Sarvam flows.
+
+This module splits the transcription job into chunk-level processing so
+long videos can be handled reliably without sending huge files at once.
+"""
+
 import whisper
 import os
 import requests
@@ -19,6 +25,7 @@ _model = None
 
 
 def load_model():
+    # Load Whisper lazily so the model is only pulled into memory when needed.
 
     global _model  
 
@@ -30,6 +37,7 @@ def load_model():
 
 
 def transcribe_chunk_whisper(chunk_path: str) -> str:
+    # Local English transcription path.
 
     model = load_model()  
 
@@ -65,6 +73,7 @@ def transcribe_chunk_sarvam(chunk_path: str) -> str:
     Sarvam sync API only accepts ≤30s audio. We split this chunk into
     25-second pieces, send each separately, and join the transcripts.
     """
+    # Break the chunk into safe sub-pieces before calling the API.
     if not SARVAM_API_KEY:
         raise RuntimeError("SARVAM_API_KEY is not set in environment / .env")
 
@@ -104,6 +113,7 @@ def transcribe_chunk(chunk_path: str, language: str = "english") -> str:
 
 
 def transcribe_all(chunks: list, language: str = "english") -> str:
+    # Transcribe each audio chunk and stitch the results back together.
 
     full_transcript = "" 
 
