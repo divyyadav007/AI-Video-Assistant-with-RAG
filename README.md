@@ -227,7 +227,6 @@ After processing a video, users can ask:
 * Summarize the entire discussion.
 * What action items are pending?
 * Explain this topic in simple terms.
-<img width="1919" height="917" alt="Screenshot 2026-06-07 203913" src="https://github.com/user-attachments/assets/1f2e511d-7460-4d89-a304-82d38e2ae1b7" />
 <img width="1917" height="917" alt="Screenshot 2026-06-07 203900" src="https://github.com/user-attachments/assets/b6b634e2-4296-4cd4-b29e-6fe578966e43" />
 
 ---
