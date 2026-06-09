@@ -16,7 +16,7 @@ The system automatically:
 * Creates a searchable knowledge base using ChromaDB
 * Enables conversational Q&A over video content using RAG
 
-Built to demonstrate practical applications of:
+Built to demonstrate practical applications of :
 
 * Retrieval-Augmented Generation (RAG)
 * Vector Databases
